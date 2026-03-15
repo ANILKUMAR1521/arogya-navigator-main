@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 //const PORT = 5000;
 
 // 🔑 Replace with your Fast2SMS API Key
-const FAST2SMS_API_KEY = "peoqVWS3fAJxi6jB19dZ5mMPLK2nDbEcHCTzXahUQyRw4vNlGIx249X6rhA8tmVsqSIbE1GCpHgNaRD7";
+const FAST2SMS_API_KEY = "WfotqhODC9NP2DpEwm2spWiBj3tbjDSvc4L6NJmSJu7SEqtLQkgfoHSOo7Tf";
 
 let otpStore = {};
 
