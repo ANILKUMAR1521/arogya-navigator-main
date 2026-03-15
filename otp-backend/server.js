@@ -7,7 +7,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+//const PORT = 5000;
 
 // 🔑 Replace with your Fast2SMS API Key
 const FAST2SMS_API_KEY = "YOUR_NEW_FAST2SMS_API_KEY";
