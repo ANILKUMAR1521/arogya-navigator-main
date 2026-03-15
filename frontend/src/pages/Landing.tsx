@@ -89,7 +89,7 @@ const Landing = () => {
       </main>
 
       <footer className="py-8 text-center">
-        <p className="mono-label">© 2026 arogyNetr</p>
+        <p className="mono-label">© 2026 AROGYANETR</p>
       </footer>
     </div>
   );
