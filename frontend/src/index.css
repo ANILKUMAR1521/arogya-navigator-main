@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 20% 98.5%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 217 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 240 10% 3.9%;
+
+    --muted: 215 16% 47%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 0% / 0.08;
+    --input: 214 32% 91%;
+    --ring: 217 100% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 60%;
+
+    /* Custom tokens */
+    --surface: 0 0% 100%;
+    --surface-hover: 210 20% 98%;
+    --clinical-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 8px 16px rgba(0,0,0,0.02);
+    --clinical-shadow-lg: 0 2px 4px rgba(0,0,0,0.04), 0 16px 32px rgba(0,0,0,0.04);
+    --risk-healthy: 160 84% 39%;
+    --risk-moderate: 38 92% 50%;
+    --risk-high: 0 84% 60%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 215 16% 47%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 100% / 0.08;
+    --input: 240 4% 16%;
+    --ring: 217 100% 50%;
+    --surface: 240 10% 8%;
+    --surface-hover: 240 10% 10%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .clinical-card {
+    @apply bg-surface rounded-xl p-6;
+    box-shadow: var(--clinical-shadow);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .clinical-card-lg {
+    @apply bg-surface rounded-xl p-8;
+    box-shadow: var(--clinical-shadow-lg);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .mono-label {
+    font-family: 'Geist Mono', monospace;
+    @apply text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium;
+  }
+
+  .display-text {
+    @apply text-foreground font-semibold;
+    letter-spacing: -0.03em;
+  }
+
+  .pill-button {
+    @apply rounded-full px-8 py-4 font-medium transition-all duration-200;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .pill-button-primary {
+    @apply pill-button bg-foreground text-background;
+  }
+
+  .pill-button-primary:hover {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+
+  .pill-button-outline {
+    @apply pill-button bg-transparent text-foreground;
+    border: 1px solid hsl(var(--border));
+  }
+
+  .pill-button-outline:hover {
+    @apply bg-surface-hover;
+  }
+
+  .pill-button-accent {
+    @apply pill-button bg-primary text-primary-foreground;
+  }
+
+  .pill-button-accent:hover {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+
+  .toggle-option {
+    @apply flex-1 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer text-center;
+  }
+
+  .toggle-option-active {
+    @apply toggle-option bg-primary text-primary-foreground;
+  }
+
+  .toggle-option-inactive {
+    @apply toggle-option bg-secondary text-foreground;
+  }
+
+  .toggle-option-inactive:hover {
+    @apply bg-surface-hover;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3.5 rounded-xl bg-surface text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-all;
+    border: 1px solid hsl(var(--border));
+  }
+
+  .section-number {
+    font-family: 'Geist Mono', monospace;
+    @apply text-xs uppercase tracking-[0.15em] text-muted-foreground font-medium mb-6;
+  }
+}
+
+@layer utilities {
+  .bg-surface {
+    background-color: hsl(var(--surface));
+  }
+  .bg-surface-hover {
+    background-color: hsl(var(--surface-hover));
+  }
+  .bg-risk-healthy {
+    background-color: hsl(var(--risk-healthy));
+  }
+  .bg-risk-moderate {
+    background-color: hsl(var(--risk-moderate));
+  }
+  .bg-risk-high {
+    background-color: hsl(var(--risk-high));
+  }
+  .text-risk-healthy {
+    color: hsl(var(--risk-healthy));
+  }
+  .text-risk-moderate {
+    color: hsl(var(--risk-moderate));
+  }
+  .text-risk-high {
+    color: hsl(var(--risk-high));
+  }
+}
