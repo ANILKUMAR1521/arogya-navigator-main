@@ -54,7 +54,7 @@ const HealthForm = () => {
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
             <Activity className="w-4 h-4 text-primary-foreground" />
           </div>
-          <span className="display-text text-lg">arogyNetr</span>
+          <span className="display-text text-lg">AROGYANETR</span>
         </div>
         <div className="flex items-center gap-4">
           <span className="text-muted-foreground text-sm">{user?.name}</span>
